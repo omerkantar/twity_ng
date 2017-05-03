@@ -19,7 +19,7 @@ export class TweetsService {
   }
 
   getUrl(url:string):string {
-    return "http://localhost:5454/user/" + url + "?screen_name=" + this.username
+    return "http://139.59.132.139:5454/user/" + url + "?screen_name=" + this.username
   }
 
   getTweets(): Observable<Tweets> {
