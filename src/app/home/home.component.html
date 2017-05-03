@@ -1,0 +1,27 @@
+
+<br><br>
+<h1>Twitter Analizi</h1>
+<br><br>
+<div *ngIf="user">
+  <div class="row">
+    <div class="column column-10">
+      <img src="{{user.profile_image_url_https}}" style="border-radius: 50%; border: solid #ddd 1px;">
+    </div>
+    <div class="float-right">
+      <h2 style="margin: 0px;padding-right: 20px;">{{ user.name }}</h2>
+      <h3>{{user.screen_name}}</h3>
+    </div>
+  </div>
+  <blockquote>
+    <h3><em>{{user.description}}</em></h3>
+  </blockquote>
+  <br>
+  <div class="float-righ">
+    <a class="button-large button-clear" style="font-size: 1.7em; margin-right: 5.0px;" [routerLink]="['/home/tweets']">Tweetler</a>
+    <a class="button-large button-clear" style="font-size: 1.7em;" [routerLink]="['/home/favourites']">Favoriler</a>
+  </div>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
