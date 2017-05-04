@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { LocalStorageService } from 'angular-2-local-storage';
 
 import { LiveService } from '../live.service';
-import { SingleUser } from '../user.service';
 
 @Component({
   selector: 'app-live',
@@ -14,8 +14,9 @@ export class LiveComponent implements OnInit, OnDestroy {
   connection;
   username: string;
 
-  constructor(private liveService: LiveService) {
-    this.username = SingleUser.getInstance().name;
+  constructor(private liveService: LiveService, private localStorage: LocalStorageService) {
+    this.username = localStorage.get('username').toString();
+
   }
 
   ngOnInit() {

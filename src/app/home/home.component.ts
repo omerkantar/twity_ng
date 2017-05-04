@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'angular-2-local-storage';
 
-import { UserService, User } from '../user.service';
 import { TweetsComponent } from '../tweets/tweets.component';
 import { LiveComponent } from '../live/live.component';
 
-import { SingleUser } from '../user.service';
+import { User, UserService } from '../user.service';
 
 
 
@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
   username: string;
   user: User;
 
-  constructor(private userService: UserService, private router: Router) {
-    this.username = SingleUser.getInstance().name;
+  constructor(private userService: UserService, private router: Router, private localStorage: LocalStorageService) {
+    this.username = localStorage.get('username').toString();
     if (this.username == null || this.username == "") {
       this.clickBack()
     }
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   }
 
   clickBack() {
-    SingleUser.getInstance().name = "";
+    this.localStorage.set("username", "");
     this.router.navigate(['/']);
   }
 }

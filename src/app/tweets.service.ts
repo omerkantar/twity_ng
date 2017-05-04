@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import { Observable } from 'rxjs/Rx';
-import { SingleUser } from './user.service';
+import { LocalStorageService } from 'angular-2-local-storage';
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
@@ -14,8 +14,8 @@ export class TweetsService {
 
   private username:string;
 
-  constructor(private http:Http) {
-    this.username = SingleUser.getInstance().name;
+  constructor(private http:Http, private localStorage: LocalStorageService) {
+    this.username = localStorage.get("username").toString();
   }
 
   getUrl(url:string):string {

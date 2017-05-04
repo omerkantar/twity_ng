@@ -8,14 +8,10 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 
-
 @Injectable()
 export class UserService {
 
-  constructor (private http: Http) {
-
-  }
-
+  constructor (private http: Http) { }
 
   getUrl(url: string, username: string): string {
     return "http://46.101.211.25:5454/user/" + url + "?screen_name=" + username
@@ -39,21 +35,3 @@ export class User {
     public profile_image_url_https: string
   ) { }
 }
-
-
-export class SingleUser {
-  private static _instance: SingleUser = new SingleUser();
-  name: string;
-
-  constructor() {
-    if(SingleUser._instance){
-      throw new Error("Error: Instantiation failed: Use SingletonClass.getInstance() instead of new.");
-    }
-    SingleUser._instance = this;
-  }
-
-  public static getInstance(): SingleUser {
-    return SingleUser._instance;
-  }
-}
-
