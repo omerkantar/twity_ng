@@ -14,11 +14,11 @@ export class TweetsService {
 
   private username:string;
 
-  constructor(private http:Http, private localStorage: LocalStorageService) {
-    this.username = localStorage.get("username").toString();
-  }
+  constructor(private http:Http, private localStorage: LocalStorageService) { }
+
 
   getUrl(url:string):string {
+    this.username = this.localStorage.get("username").toString();
     return "http://46.101.211.25:5454/user/" + url + "?screen_name=" + this.username
   }
 
