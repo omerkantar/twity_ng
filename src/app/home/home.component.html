@@ -1,6 +1,11 @@
+<div class="row">
+  <div class="float-left">
+    <button class="button-clear" style="text-transform: capitalize" (click)="clickBack()">back</button>
 
+  </div>
+</div>
 <br><br>
-<h1>Twitter Analizi</h1>
+<h1>Twitter Stalk</h1>
 <br><br>
 <div *ngIf="user">
   <div class="row">
@@ -17,8 +22,9 @@
   </blockquote>
   <br>
   <div class="float-righ">
-    <a class="button-large button-clear" style="font-size: 1.7em; margin-right: 5.0px;" [routerLink]="['/home/tweets']">Tweetler</a>
-    <a class="button-large button-clear" style="font-size: 1.7em;" [routerLink]="['/home/favourites']">Favoriler</a>
+    <a class="button-large button-clear" id="tab-button" [routerLink]="['/home/tweets']">Tweetler</a>
+    <a class="button-large button-clear" id="tab-button" [routerLink]="['/home/favourites']">Favoriler</a>
+    <a class="button-large button-clear" id="tab-button" [routerLink]="['/home/live']">İzle</a>
   </div>
 
   <div>

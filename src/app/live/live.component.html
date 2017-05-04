@@ -1,0 +1,18 @@
+<!--http://twitter.com/{twitter-user-id}/status/{tweet-staus-id}-->
+
+<br>
+<p>Onunla ilgili tweetler anlık düşer.</p>
+<br>
+<div *ngIf="list">
+  <div *ngFor="let item of list; let i = index">
+    <div *ngIf="item.tweet">
+      <a target="_blank" href="http://twitter.com/{{item.tweet.user.screen_name}}/status/{{item.tweet.id_str}}">
+        <blockquote>
+          <em>{{item.tweet.text}}</em>
+        </blockquote>
+      </a>
+
+
+    </div>
+  </div>
+</div>

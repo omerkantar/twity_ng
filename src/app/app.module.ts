@@ -13,8 +13,11 @@ import { EntranceComponent } from './entrance/entrance.component';
 
 import { UserService } from './user.service';
 import { TweetsService } from './tweets.service';
+import { LiveService } from './live.service';
+
 import { TweetsComponent } from './tweets/tweets.component';
 import { FavouritesComponent } from './favourites/favourites.component';
+import { LiveComponent } from './live/live.component';
 
 const appRoutes: Routes = [
   { path: '', component: EntranceComponent },
@@ -22,7 +25,8 @@ const appRoutes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'tweets', component: TweetsComponent },
-      { path: 'favourites', component: FavouritesComponent }
+      { path: 'favourites', component: FavouritesComponent },
+      { path: 'live', component: LiveComponent }
     ]
   },
 ];
@@ -33,7 +37,8 @@ const appRoutes: Routes = [
     HomeComponent,
     EntranceComponent,
     TweetsComponent,
-    FavouritesComponent
+    FavouritesComponent,
+    LiveComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -45,7 +50,7 @@ const appRoutes: Routes = [
       storageType: 'localStorage'
     })
   ],
-  providers: [UserService, TweetsService],
+  providers: [UserService, TweetsService, LiveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

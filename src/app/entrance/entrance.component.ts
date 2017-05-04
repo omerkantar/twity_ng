@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalStorageService } from 'angular-2-local-storage';
 import { Router } from '@angular/router';
+import { SingleUser } from '../user.service';
 
 
 @Component({
@@ -12,20 +12,15 @@ export class EntranceComponent implements OnInit {
 
   username: string;
 
-  constructor(private localStorageService: LocalStorageService, private router: Router) {
-
-  }
+  constructor(private router: Router) { }
 
   ngOnInit() {
-
+    SingleUser.getInstance().name = "";
   }
 
   clicked(event) {
-
-    this.localStorageService.set("username", this.username);
-
+    SingleUser.getInstance().name = this.username;
     this.router.navigate(['/home']);
-
   }
 
 }
