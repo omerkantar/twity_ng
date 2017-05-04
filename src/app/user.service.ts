@@ -18,7 +18,7 @@ export class UserService {
 
 
   getUrl(url: string, username: string): string {
-    return "http://localhost:5454/user/" + url + "?screen_name=" + username
+    return "http://46.101.211.25:5454/user/" + url + "?screen_name=" + username
   }
 
   getUser(username: string): Observable<User> {

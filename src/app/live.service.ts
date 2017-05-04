@@ -13,7 +13,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class LiveService {
   private name: string;
-  private url: string = "http://localhost:5454";
+  private url: string = "http://46.101.211.25:5454";
   private socket;
 
   constructor() { }
